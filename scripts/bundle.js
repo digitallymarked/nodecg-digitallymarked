@@ -2,7 +2,7 @@ const { fork } = require('child_process')
 
 const isProduction = process.env.NODE_ENV === 'production'
 const command = isProduction ? 'build' : 'watch'
-const detailedReport = isProduction ? ['--detailed-report --no-source-maps'] : ['--no-source-maps']
+const detailedReport = isProduction ? ['--detailed-report', '--no-source-maps'] : ['--no-source-maps']
 
 fork('./node_modules/.bin/parcel', [
 	command,
@@ -16,22 +16,22 @@ fork('./node_modules/.bin/parcel', [
 	...detailedReport,
 ])
 
-// fork('./node_modules/.bin/parcel', [
-//   command,
-//   'src/dashboard/*.html',
-//   '--out-dir',
-//   'dashboard',
-//   '--public-url',
-//   './',
-//   ...detailedReport,
-// ])
+fork('./node_modules/.bin/parcel', [
+  command,
+  'src/dashboard/*/*.html',
+  '--out-dir',
+  'dashboard',
+  '--public-url',
+  './',
+  ...detailedReport,
+])
 
-// fork('./node_modules/.bin/parcel', [
-//   command,
-//   'src/graphics/*.html',
-//   '--out-dir',
-//   'graphics',
-//   '--public-url',
-//   './',
-//   ...detailedReport,
-// ])
+fork('./node_modules/.bin/parcel', [
+  command,
+  'src/graphics/*/*.html',
+  '--out-dir',
+  'graphics',
+  '--public-url',
+  './',
+  ...detailedReport,
+])

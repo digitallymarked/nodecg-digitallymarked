@@ -1,0 +1,48 @@
+{
+  "name": "nodecg-digitallymarked",
+  "version": "0.1.0",
+  "description": "NodeCG overlay bundle for twitch.tv/digitallymarked based on React",
+  "author": {
+    "name": "Mark Markov",
+    "email": "digitallymarked@gmail.com"
+  },
+  "keywords": [
+    "nodecg",
+    "react",
+    "nodecg-bundle"
+  ],
+  "repository": "https://github.com/digitallymarked/nodecg-digitallymarked",
+  "license": "MIT",
+  "engines": {
+    "node": "^13.0.0",
+    "browsers": "last 1 chrome versions"
+  },
+  "devDependencies": {
+    "del-cli": "^3.0.0",
+    "parcel-bundler": "^1.12.4"
+  },
+  "scripts": {
+    "dev": "node scripts/bundle.js",
+    "build": "del dashboard extension graphics .cache && NODE_ENV=production npm run dev",
+    "clean": "del dashboard extension graphics .cache"
+  },
+  "nodecg": {
+    "compatibleRange": "^1.6.0",
+    "bundleDependencies": [],
+    "dashboardPanels": [
+      {
+        "name": "samplePannel",
+        "title": "Sample Pannel",
+        "width": 2,
+        "file": "samplePannel.html"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "sampleGraphic.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  }
+}
