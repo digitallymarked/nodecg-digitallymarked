@@ -1,0 +1,1 @@
+document.getElementById('view').innerHTML = '<h1>Sample Graphic</h1>'
